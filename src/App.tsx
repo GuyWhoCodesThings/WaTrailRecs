@@ -4,7 +4,7 @@ import { Hike } from './types.tsx/hike';
 import Search from './Search';
 import Results from './Results';
 import NavBar from './Components/Navbar';
-import About from './About';
+// import About from './About';
 
 function App() {
   const [hikesData, setHikesData] = useState<undefined | Array<Hike>>(undefined);
@@ -42,10 +42,10 @@ function App() {
   }
 
   return (
-    <div className='w-full h-screen '>
+    <div className='w-screen h-screen '>
       <NavBar />
-      <main className='mt-12'>
-        <About />
+      <main className='mt-12 w-full'>
+        {/* <About /> */}
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
         <p className='text-center text-sm text-red-500'>{error}</p>
 
