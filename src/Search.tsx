@@ -85,41 +85,52 @@ const Search = (props: SearchProps) => {
       </div>
 
       {src >= 0 &&
-        <div className="gap-4 flex items-center mt-4  p-2 rounded-md">
+        <div className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mt-4  p-2 rounded-md">
             <div className="relative overflow-hidden w-[400px] h-[300px] bg-slate-100 p-2 rounded-md">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
             </div>
 
             <form 
-            className="flex flex-col gap-1 bg-slate-100 rounded-md p-2"
+            className="flex flex-col flex-wrap bg-slate-100 rounded-md p-2"
             onSubmit={(e: React.MouseEvent<HTMLFormElement, MouseEvent>) => handleSearchClick(e)}
             >
               
-              
-              <div className="flex flex-col items-center justify-end gap-1">
-                <label>Length/Elevation</label>
-                <input
-                onChange={(e) => handleRangeChange(0, Number(e.target.value))}
-                defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[0]}/>
-              </div>
-              <div className="flex flex-col items-center justify-end gap-1">
-                <label>Features</label>
-                <input
-                onChange={(e) => handleRangeChange(1, Number(e.target.value))}
-                defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[1]} />
-              </div>
-              <div className="flex flex-col items-center justify-end gap-1">
-                <label>Image</label>
-                <input
-                onChange={(e) => handleRangeChange(2, Number(e.target.value))}
-                defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[2]} />
-              </div>
-              <div className="flex flex-col items-center justify-end gap-1">
-                <label>Description</label>
-                <input
-                onChange={(e) => handleRangeChange(3, Number(e.target.value))}
-                defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[3]} />
+              <div className="flex flex-col">
+
+                <div className="flex lg:block md:block sm:flex gap-4">
+                <div className="flex flex-col items-center justify-end gap-1">
+                  <label>Length/Elevation</label>
+                  <input
+                  className=" accent-blue-500"
+                  onChange={(e) => handleRangeChange(0, Number(e.target.value))}
+                  defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[0]}/>
+                </div>
+                <div className="flex flex-col items-center justify-end gap-1">
+                  <label>Features</label>
+                  <input
+                  className=" accent-blue-500"
+                  onChange={(e) => handleRangeChange(1, Number(e.target.value))}
+                  defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[1]} />
+                </div>
+                </div>
+
+                <div className="flex lg:block md:block sm:flex gap-4">
+                <div className="flex flex-col items-center justify-end gap-1">
+                  <label>Image</label>
+                  <input
+                  className=" accent-blue-500"
+                  onChange={(e) => handleRangeChange(2, Number(e.target.value))}
+                  defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[2]} />
+                </div>
+                <div className="flex flex-col items-center justify-end gap-1">
+                  <label>Description</label>
+                  <input
+                  className=" accent-blue-500"
+                  onChange={(e) => handleRangeChange(3, Number(e.target.value))}
+                  defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[3]} />
+                </div>
+                </div>
               </div>
               <div className="flex flex-col items-center justify-end gap-1">
                 <label># of hikes to find</label>
