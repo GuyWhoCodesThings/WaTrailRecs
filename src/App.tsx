@@ -35,7 +35,7 @@ function App() {
     if (resultsRef.current !== null && currentHikeIdx && currentHikeIdx >= 0) {
       resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [currentHikeIdx])
+  }, [currentHikeIdx, mask, searchSize])
 
   if (hikesData === undefined) {
     return <div>Loading...</div>
