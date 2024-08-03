@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className="w-screen h-fit p-4 m-4 text-sm">
+        <div className="w-screen h-fit p-4 m-4 ml-6 mr-6 text-sm">
            
             <h5 className="text-3xl m-2">How to Search</h5>
             <div className="flex justify-center">
