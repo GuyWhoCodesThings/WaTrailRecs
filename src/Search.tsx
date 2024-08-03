@@ -56,11 +56,11 @@ const Search = (props: SearchProps) => {
             value={searchData}
             className="w-full h-10 p-4 border-2"
           />
-          {/* <button
-          className="bg-blue-500 rounded-md hover:bg-blue-600 p-2"
+          <button
+          className="bg-blue-500 rounded-md hover:bg-blue-600 p-2 hidden"
           onClick={handleSelectClick}>
             Select
-          </button> */}
+          </button>
           
         </div>
       </div>
