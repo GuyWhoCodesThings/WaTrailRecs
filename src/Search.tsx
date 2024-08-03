@@ -147,8 +147,9 @@ const Search = (props: SearchProps) => {
               <div className="flex flex-col items-center justify-end gap-1">
                 <label># of hikes to find</label>
                 <input
+                className="w-16 text-lg mb-1 text-right"
                 onChange={(e) => setK(Number(e.target.value))}
-                defaultChecked type="number" width={20} min={0} max={30} step={1} value={k} />
+                defaultChecked type="number" min={0} max={30} step={1} value={k} />
               </div>
               <button type="submit" className="bg-blue-500 rounded-md hover:bg-blue-600">
                 Find
