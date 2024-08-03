@@ -4,7 +4,7 @@ const About = () => {
            
             <h5 className="text-3xl m-2">How to Search</h5>
             <div className="flex justify-center">
-            <ul className="list-decimal text-left max-w-[400px] flex flex-col gap-2">
+            <ul className="list-decimal text-left w-2/3 lg:max-w-[400px] md:max-w-[400px] sm:w-1/2 flex flex-col gap-2">
                 <li>
                     find a hike from the list or through the search bar
                 </li>
