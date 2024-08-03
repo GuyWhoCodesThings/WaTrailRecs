@@ -1,0 +1,27 @@
+import { HikeComparable } from "../types.tsx/hike";
+
+type CardProps = {
+  hike: HikeComparable;
+};
+
+const Card = (props: CardProps) => {
+  return (
+    <div className="bg-slate-100 p-1 rounded-lg shadow-md flex flex-col items-center w-[350px] justify-self-center mx-auto">
+      <a href={props.hike.hike.url} className="block text-center text-lg font-semibold mb-2">
+        {props.hike.hike.name}
+      </a>
+      <p className="text-center h-6 bg-opacity-85 text-sm font-light text-black mb-2">
+        Score: <span className="text-orange-500">{props.hike.distance.toFixed(3)}</span>
+      </p>
+      <div className="w-full h-[200px] overflow-hidden flex items-center justify-center">
+        <img 
+          src={props.hike.hike.imageSrc} 
+          className="object-cover w-full h-full" 
+          alt={`Image of ${props.hike.hike.name}`} 
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Card;
