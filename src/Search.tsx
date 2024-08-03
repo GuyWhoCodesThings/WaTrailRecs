@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Hike } from "./types.tsx/hike";
 
 type SearchProps = {
@@ -9,6 +9,7 @@ type SearchProps = {
 const Search = (props: SearchProps) => {
 
   
+  const targetRef = useRef<HTMLDivElement>(null)
   const [searchData, setSearchData] = useState("");
   const [src, setSrc] = useState<number>(-1)
   const [rangeValues, setRangeValues] = useState<Array<number>>([1, 1, 1, 1]);
@@ -37,6 +38,12 @@ const Search = (props: SearchProps) => {
     newRangeValues[index] = value;
     setRangeValues(newRangeValues);
   };
+
+  useEffect(() => {
+    if (src >= 0 && targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [src])
 
   return (
     <div className="flex flex-col items-center w-screen h-fit">
@@ -84,8 +91,10 @@ const Search = (props: SearchProps) => {
           }
       </div>
 
+      
+      <div ref={targetRef}>
       {src >= 0 &&
-        <div className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mt-4  p-2 rounded-md">
+        <div  className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mt-4  p-2 rounded-md">
             <div className="relative overflow-hidden w-[400px] h-[300px] bg-slate-100 p-2 rounded-md">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
@@ -147,6 +156,8 @@ const Search = (props: SearchProps) => {
           
         </div>
       }
+        </div>
+      
       
     </div>
   );
