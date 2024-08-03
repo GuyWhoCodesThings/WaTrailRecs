@@ -46,9 +46,9 @@ const Search = (props: SearchProps) => {
   }, [src])
 
   return (
-    <div className="flex flex-col items-center w-screen h-fit">
-      <div className="flex flex-col items-center w-full bg-slate-200 py-4">
-        <div className="w-[80%] flex gap-1 items-center  p-2 rounded-sm">
+    <div className="flex flex-col items-center w-full h-fit">
+      <div className="flex flex-col items-center w-full bg-slate-200 py-2">
+        <div className="w-full flex gap-1 items-center  p-2 rounded-sm">
           <input
             type="text"
             placeholder="Enter a hike you enjoyed..."
