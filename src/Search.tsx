@@ -46,7 +46,7 @@ const Search = (props: SearchProps) => {
   }, [src])
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-fit hidden">
+    <div className="flex flex-col items-center justify-center w-full h-fit">
       <div className="flex flex-col items-center w-full">
         <div className="w-full flex items-center rounded-sm">
           <input
@@ -57,7 +57,7 @@ const Search = (props: SearchProps) => {
             className="w-full h-10 p-4 border-2"
           />
           <button
-          className="bg-blue-500 rounded-md hover:bg-blue-600 p-2"
+          className="bg-blue-500 rounded-md hover:bg-blue-600"
           onClick={handleSelectClick}>
             Select
           </button>
