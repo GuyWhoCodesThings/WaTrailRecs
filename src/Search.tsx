@@ -48,7 +48,7 @@ const Search = (props: SearchProps) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-fit">
       <div className="flex flex-col items-center w-full">
-        <div className="w-full flex gap-1 items-center rounded-sm">
+        <div className="w-full flex items-center rounded-sm">
           <input
             type="text"
             placeholder="Enter a hike you enjoyed..."
@@ -97,7 +97,7 @@ const Search = (props: SearchProps) => {
       
   
       {src >= 0 &&
-        <section ref={targetRef} className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mb-12 bg-slate-100">
+        <section ref={targetRef} className="w-full gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col justify-center items-center bg-slate-100">
             <div className="overflow-hidden max-w-[350px] max-h-[350px]">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
@@ -158,6 +158,7 @@ const Search = (props: SearchProps) => {
           
         </section>
       }
+      <div className="w-full h-8 bg-slate-100"></div>
      
       
       

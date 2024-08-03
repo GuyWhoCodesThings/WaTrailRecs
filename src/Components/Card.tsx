@@ -13,7 +13,7 @@ const Card = (props: CardProps) => {
       <p className="text-center h-6 bg-opacity-85 text-sm font-light text-black">
         Score: <span className="text-orange-500">{props.hike.distance.toFixed(3)}</span>
       </p>
-      <div className="w-full h-fit overflow-hidden flex items-center justify-center">
+      <div className="w-full h-full overflow-hidden flex items-center justify-center">
         <img 
           src={props.hike.hike.imageSrc} 
           className="object-cover w-full h-full" 
