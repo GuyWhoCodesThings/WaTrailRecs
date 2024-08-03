@@ -27,6 +27,7 @@ body {
   padding: 0px;
   width: 100%;
   display: flex;
+  overflow-x: hidden;
   place-items: center;
   justify-content: center;
   align-items: center;

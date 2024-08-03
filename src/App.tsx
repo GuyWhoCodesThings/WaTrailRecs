@@ -42,7 +42,7 @@ function App() {
   }
 
   return (
-    <div className='relative w-full h-screen'>
+    <div className='relative w-screen h-screen'>
       <NavBar />
       <main className='p-0 m-0 w-full flex flex-col items-center '>
         <About />
