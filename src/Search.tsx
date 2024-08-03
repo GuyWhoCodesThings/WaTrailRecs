@@ -65,7 +65,7 @@ const Search = (props: SearchProps) => {
         </div>
       </div>
       <div className="text-left text-sm w-full gap-1 rounded-md grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 p-2 text-lg font-medium">Choose a Hike</div>
+        <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 p-2 text-lg font-medium">Choose a Hike</p>
         {props.hikes &&
           props.hikes
             .map(hike => hike.name)
@@ -74,7 +74,10 @@ const Search = (props: SearchProps) => {
             .map((hike, idx) => (
               <div key={idx} className="h-8">
                 <button
-                  onClick={() => setSearchData(hike)}
+                  onClick={() => {
+                    window.scrollTo(0, 0)
+                    setSearchData(hike)
+                  }}
                   className="text-black text-left text-xs opacity-75 hover:opacity-100 hover:font-bold">
                     {hike}
                  </button>
