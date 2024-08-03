@@ -6,14 +6,14 @@ type CardProps = {
 
 const Card = (props: CardProps) => {
   return (
-    <div className="bg-slate-100 p-1 rounded-lg shadow-md flex flex-col items-center w-[350px] justify-self-center mx-auto">
-      <a href={props.hike.hike.url} className="block text-center text-lg font-semibold mb-2">
+    <div className="bg-slate-100 p-1 flex flex-col items-center w-full justify-self-center">
+      <a href={props.hike.hike.url} className="block text-center text-lg font-semibold">
         {props.hike.hike.name}
       </a>
-      <p className="text-center h-6 bg-opacity-85 text-sm font-light text-black mb-2">
+      <p className="text-center h-6 bg-opacity-85 text-sm font-light text-black">
         Score: <span className="text-orange-500">{props.hike.distance.toFixed(3)}</span>
       </p>
-      <div className="w-full h-[200px] overflow-hidden flex items-center justify-center">
+      <div className="w-full h-fit overflow-hidden flex items-center justify-center">
         <img 
           src={props.hike.hike.imageSrc} 
           className="object-cover w-full h-full" 

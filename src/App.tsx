@@ -42,9 +42,9 @@ function App() {
   }
 
   return (
-    <div className='w-screen h-full'>
+    <div className='w-full h-screen '>
       <NavBar />
-      <main className='p-0 m-0 w-full flex flex-col items-center '>
+      <main className='mt-12'>
         <About />
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
         <p className='text-center text-sm text-red-500'>{error}</p>

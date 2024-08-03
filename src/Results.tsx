@@ -16,12 +16,12 @@ const Results = (props: ResultsProps) => {
   const nearestK = topK(target, copyOfHikes, props.k, props.mask);
 
   return (
-    <div className="flex flex-col gap-4 justify-center items-center mt-4 w-full">
-      <div className="bg-emerald-600 text-white w-full p-2">
+    <div className="flex flex-col justify-center items-center w-full bg-slate-200">
+      <div className="bg-emerald-600 text-white w-full ">
         <h1 className="text-3xl text-white">Similar Hikes</h1>
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full m-auto justify-center">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full justify-center">
         {nearestK.map((hike, idx) => (
           <Card key={idx} hike={hike} />
         ))}

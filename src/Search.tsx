@@ -46,15 +46,15 @@ const Search = (props: SearchProps) => {
   }, [src])
 
   return (
-    <div className="flex flex-col items-center w-full h-fit">
-      <div className="flex flex-col items-center w-full bg-slate-200 py-2">
-        <div className="w-full flex gap-1 items-center  p-2 rounded-sm">
+    <div className="flex flex-col items-center justify-center w-full h-fit">
+      <div className="flex flex-col items-center w-full">
+        <div className="w-full flex gap-1 items-center rounded-sm">
           <input
             type="text"
             placeholder="Enter a hike you enjoyed..."
             onChange={handleSearchChange}
             value={searchData}
-            className="w-full h-10 pl-1"
+            className="w-full h-10 p-4 border-2"
           />
           <button
           className="bg-blue-500 rounded-md hover:bg-blue-600"
@@ -64,7 +64,7 @@ const Search = (props: SearchProps) => {
           
         </div>
       </div>
-      <div className="text-left text-sm w-full gap-1 rounded-md grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 pl-12 pr-12">
+      <div className="text-left text-sm w-full gap-1 rounded-md grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 p-2 text-lg font-medium">Choose a Hike</div>
         {props.hikes &&
           props.hikes
@@ -85,17 +85,17 @@ const Search = (props: SearchProps) => {
             .map(hike => hike.name)
             .filter((hike) => hike.toLowerCase().startsWith(searchData.toLowerCase()))
             .length === 0 &&
-              <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 p-2 text-red-500">
+              <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 text-red-500">
                 No hikes found with name {searchData}.
               </p>
           }
       </div>
 
       
-      <div ref={targetRef}>
+  
       {src >= 0 &&
-        <div  className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mt-4  p-2 rounded-md">
-            <div className="relative overflow-hidden w-[400px] h-[300px] bg-slate-100 p-2 rounded-md">
+        <section ref={targetRef} className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mb-12">
+            <div className="overflow-hidden w-[400px] h-[300px] bg-slate-100 rounded-md">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
             </div>
@@ -151,12 +151,11 @@ const Search = (props: SearchProps) => {
                 Find
               </button>
               
-              
             </form>
           
-        </div>
+        </section>
       }
-        </div>
+     
       
       
     </div>
