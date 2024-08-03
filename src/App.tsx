@@ -23,9 +23,9 @@ function App() {
 
   useEffect(() => {
     fetch('/hikes.json')
-    .then(res => res.json())
-    .then(data => setHikesData(data))
-    .catch(err => console.error(`Error loading hikes: ${err}`))
+      .then(res => res.json())
+      .then(data => setHikesData(data))
+      .catch(err => console.error(`Error loading hikes: ${err}`))
   }, [])
 
   if (hikesData === undefined) {
@@ -33,9 +33,9 @@ function App() {
   }
 
   return (
-    <div className='relative w-screen min-h-screen'>
+    <div className='relative w-full min-h-screen'>
       <NavBar />
-      <main className='w-full flex flex-col items-center'>
+      <main className=' w-full flex flex-col items-center'>
         <About />
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
         <p className='text-center text-sm text-red-500'>{error}</p>
@@ -45,7 +45,6 @@ function App() {
           </div>
         }
       </main>
-     
     </div>
   )
 }

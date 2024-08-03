@@ -57,7 +57,7 @@ const Search = (props: SearchProps) => {
           
         </div>
       </div>
-      <div className="text-left text-sm w-[80%] gap-1 rounded-md grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="text-left text-sm w-full gap-1 rounded-md grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 pl-12 pr-12">
         <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 p-2 text-lg font-medium">Choose a Hike</div>
         {props.hikes &&
           props.hikes
@@ -102,14 +102,14 @@ const Search = (props: SearchProps) => {
                 <div className="flex flex-col items-center justify-end gap-1">
                   <label>Length/Elevation</label>
                   <input
-                  className=" accent-blue-500"
+                  className=" accent-blue-500 w-[175px]"
                   onChange={(e) => handleRangeChange(0, Number(e.target.value))}
                   defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[0]}/>
                 </div>
                 <div className="flex flex-col items-center justify-end gap-1">
                   <label>Features</label>
                   <input
-                  className=" accent-blue-500"
+                  className=" accent-blue-500 w-[175px]"
                   onChange={(e) => handleRangeChange(1, Number(e.target.value))}
                   defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[1]} />
                 </div>
@@ -119,14 +119,14 @@ const Search = (props: SearchProps) => {
                 <div className="flex flex-col items-center justify-end gap-1">
                   <label>Image</label>
                   <input
-                  className=" accent-blue-500"
+                  className=" accent-blue-500 w-[175px]"
                   onChange={(e) => handleRangeChange(2, Number(e.target.value))}
                   defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[2]} />
                 </div>
                 <div className="flex flex-col items-center justify-end gap-1">
                   <label>Description</label>
                   <input
-                  className=" accent-blue-500"
+                  className=" accent-blue-500 w-[175px]"
                   onChange={(e) => handleRangeChange(3, Number(e.target.value))}
                   defaultChecked type="range" min={0} max={1} step={0.1} value={rangeValues[3]} />
                 </div>
