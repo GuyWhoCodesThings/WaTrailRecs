@@ -97,14 +97,14 @@ const Search = (props: SearchProps) => {
       
   
       {src >= 0 &&
-        <section ref={targetRef} className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mb-12">
-            <div className="overflow-hidden w-[400px] h-[300px] bg-slate-100 rounded-md">
+        <section ref={targetRef} className="gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col items-center mb-12 bg-slate-100">
+            <div className="overflow-hidden max-w-[350px] max-h-[350px]">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
             </div>
 
             <form 
-            className="flex flex-col flex-wrap bg-slate-100 rounded-md p-2"
+            className="flex flex-col flex-wrap  rounded-md p-2"
             onSubmit={(e: React.MouseEvent<HTMLFormElement, MouseEvent>) => handleSearchClick(e)}
             >
               
