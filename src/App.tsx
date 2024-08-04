@@ -11,6 +11,7 @@ function App() {
   const [currentHikeIdx, setCurrentHikeIdx] = useState<number | undefined>(undefined)
   const [searchSize, setSearchSize] = useState(6)
   const [mask, setMasks] = useState([1,1,1,1])
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const resultsRef = useRef<HTMLDivElement>(null)
@@ -23,10 +24,18 @@ function App() {
     console.log(idx)
   }
 
+  const changeLoading = (loadState: boolean) => {
+    setLoading(loadState)
+  }
+
   useEffect(() => {
+    setLoading(true)
     fetch('/hikes.json')
       .then(res => res.json())
-      .then(data => setHikesData(data))
+      .then(data => {
+        setLoading(false)
+        setHikesData(data)
+      })
       .catch(err => console.error(`Error loading hikes: ${err}`))
   }, [])
 
@@ -37,7 +46,7 @@ function App() {
     }
   }, [currentHikeIdx, mask, searchSize])
 
-  if (hikesData === undefined) {
+  if (hikesData === undefined || loading) {
     return <div>Loading...</div>
   }
 
@@ -53,7 +62,7 @@ function App() {
         currentHikeIdx !== undefined && currentHikeIdx >= 0 &&
           <div ref={resultsRef} className='w-full flex justify-center'>
           
-            <Results mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />
+            <Results loadingFn={changeLoading}  mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />
           
           </div>
           }

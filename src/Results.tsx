@@ -1,19 +1,31 @@
+import { useEffect, useState } from "react";
 import Card from "./Components/Card";
 import { topK } from "./functions/distance";
-import { Hike } from "./types.tsx/hike";
+import { Hike, HikeComparable } from "./types.tsx/hike";
 
 type ResultsProps = {
   srcIdx: number;
   hikes: Array<Hike>;
   mask: Array<number>;
-  k: number
+  k: number,
+  loadingFn: (b: boolean) => void
 };
 
 const Results = (props: ResultsProps) => {
   const copyOfHikes = [...props.hikes];
   const target: Hike = copyOfHikes.splice(props.srcIdx, 1)[0];
+  const [res, setRes] = useState<Array<HikeComparable> | undefined >(undefined)
 
-  const nearestK = topK(target, copyOfHikes, props.k, props.mask);
+  useEffect(() => {
+
+    const load = async() => {
+      props.loadingFn(true)
+      const results = await topK(target, copyOfHikes, props.k, props.mask);
+      setRes(results)
+      props.loadingFn(false)
+    }
+    load()
+  }, [])
 
   return (
     <div className="flex flex-col justify-center items-center w-full bg-slate-200">
@@ -22,7 +34,7 @@ const Results = (props: ResultsProps) => {
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full justify-center">
-        {nearestK.map((hike, idx) => (
+        {res && res.map((hike, idx) => (
           <Card key={idx} hike={hike} />
         ))}
       </div>

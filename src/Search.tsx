@@ -69,7 +69,7 @@ const Search = (props: SearchProps) => {
         {props.hikes &&
           props.hikes
             .map(hike => hike.name)
-            .filter((hike) => hike.toLowerCase().startsWith(searchData.toLowerCase()))
+            .filter((hike) => hike.toLowerCase().includes(searchData.toLowerCase()))
             .sort()
             .map((hike, idx) => (
               <div key={idx} className="h-8">
@@ -86,7 +86,7 @@ const Search = (props: SearchProps) => {
           {props.hikes &&
           props.hikes
             .map(hike => hike.name)
-            .filter((hike) => hike.toLowerCase().startsWith(searchData.toLowerCase()))
+            .filter((hike) => hike.toLowerCase().includes(searchData.toLowerCase()))
             .length === 0 &&
               <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 text-red-500">
                 No hikes found with name {searchData}.
@@ -97,7 +97,7 @@ const Search = (props: SearchProps) => {
       
   
       {src >= 0 &&
-        <section ref={targetRef} className="w-full gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col justify-center items-center bg-slate-100">
+        <section ref={targetRef} className="w-full gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col justify-center items-center bg-slate-100 pb-4">
             <div className="overflow-hidden max-w-[350px] max-h-[350px]">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
@@ -156,10 +156,11 @@ const Search = (props: SearchProps) => {
               </button>
               
             </form>
+           
           
         </section>
       }
-      <div className="w-full h-8 bg-slate-100"></div>
+      
      
       
       
