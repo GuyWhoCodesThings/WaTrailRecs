@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import { Hike } from './types.tsx/hike';
 import Search from './Search';
@@ -13,8 +13,6 @@ function App() {
   const [mask, setMasks] = useState([1,1,1,1])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-
-  const resultsRef = useRef<HTMLDivElement>(null)
 
   const handleCurrentHikeChange = (idx: number, masks: Array<number>, k: number): void => {
     setError('')
@@ -40,11 +38,6 @@ function App() {
   }, [])
 
 
-  useEffect(() => {
-    if (resultsRef.current !== null && currentHikeIdx && currentHikeIdx >= 0) {
-      resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [currentHikeIdx, mask, searchSize])
 
   if (hikesData === undefined || loading) {
     return <div>Loading...</div>
@@ -60,7 +53,7 @@ function App() {
 
         {
         currentHikeIdx !== undefined && currentHikeIdx >= 0 &&
-          <div ref={resultsRef} className='w-full flex justify-center'>
+          <div className='w-full flex justify-center'>
           
             <Results loadingFn={changeLoading}  mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />
           

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Card from "./Components/Card";
 import { topK } from "./functions/distance";
 import { Hike, HikeComparable } from "./types.tsx/hike";
@@ -12,6 +12,9 @@ type ResultsProps = {
 };
 
 const Results = (props: ResultsProps) => {
+
+
+  const resultsRef = useRef<HTMLDivElement>(null)
   const copyOfHikes = [...props.hikes];
   const target: Hike = copyOfHikes.splice(props.srcIdx, 1)[0];
   const [res, setRes] = useState<Array<HikeComparable> | undefined >(undefined)
@@ -22,13 +25,16 @@ const Results = (props: ResultsProps) => {
       props.loadingFn(true)
       const results = await topK(target, copyOfHikes, props.k, props.mask);
       setRes(results)
+      if (resultsRef.current !== null) {
+        resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
       props.loadingFn(false)
     }
     load()
-  }, [])
+  }, [props.srcIdx, props.mask, props.k])
 
   return (
-    <div className="flex flex-col justify-center items-center w-full bg-slate-200">
+    <div ref={resultsRef} className="flex flex-col justify-center items-center w-full bg-slate-200">
       <div className="bg-emerald-600 text-white w-full ">
         <h1 className="text-3xl text-white">Similar Hikes</h1>
       </div>
