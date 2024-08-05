@@ -6,7 +6,7 @@ type CardProps = {
 
 const Card = (props: CardProps) => {
   return (
-    <div className="bg-slate-100 p-1 flex flex-col items-center w-full justify-self-center border-b-8 border-emerald-600">
+    <div className="bg-slate-100 flex flex-col items-center w-full justify-self-center">
       
       <div className="w-full h-full overflow-hidden flex items-center justify-center">
         <img 
@@ -16,12 +16,16 @@ const Card = (props: CardProps) => {
         />
       </div>
       
+      <div>
       <a href={props.hike.hike.url} className="block text-center text-lg font-semibold">
         {props.hike.hike.name}
       </a>
       <p className="text-center h-6 bg-opacity-85 text-sm font-light text-black">
         Score: <span className="text-orange-500">{props.hike.distance.toFixed(3)}</span>
       </p>
+
+      </div>
+      
       
     </div>
   );

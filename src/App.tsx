@@ -9,7 +9,7 @@ import About from './About';
 function App() {
   const [hikesData, setHikesData] = useState<undefined | Array<Hike>>(undefined);
   const [currentHikeIdx, setCurrentHikeIdx] = useState<number | undefined>(undefined)
-  const [searchSize, setSearchSize] = useState(6)
+  const [searchSize, setSearchSize] = useState(-1)
   const [mask, setMasks] = useState([1,1,1,1])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -52,7 +52,7 @@ function App() {
         <p className='text-center text-sm text-red-500'>{error}</p>
 
         {
-        currentHikeIdx !== undefined && currentHikeIdx >= 0 &&
+        currentHikeIdx !== undefined && currentHikeIdx >= 0 && searchSize >= 0 &&
           <div className='w-full flex justify-center'>
           
             <Results loadingFn={changeLoading}  mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />

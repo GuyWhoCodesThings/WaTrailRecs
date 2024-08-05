@@ -39,7 +39,7 @@ const Results = (props: ResultsProps) => {
         <h1 className="text-3xl text-white">Similar Hikes</h1>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full justify-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 w-full justify-center">
         {res && res.map((hike, idx) => (
           <Card key={idx} hike={hike} />
         ))}

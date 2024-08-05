@@ -13,7 +13,7 @@ const Search = (props: SearchProps) => {
   const [searchData, setSearchData] = useState("");
   const [src, setSrc] = useState<number>(-1)
   const [rangeValues, setRangeValues] = useState<Array<number>>([1, 1, 1, 1]);
-  const [k, setK] = useState(6)
+  const [k, setK] = useState(12)
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const Search = (props: SearchProps) => {
   }, [src])
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-fit">
+    <div className="flex flex-col items-center justify-center w-screen h-fit">
       <div className="flex flex-col items-center w-full">
         <div className="w-full flex items-center rounded-sm">
           <input
