@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true)
-    fetch('/hikes.json')
+    fetch('/hikes1.json')
       .then(res => res.json())
       .then(data => {
         setLoading(false)
