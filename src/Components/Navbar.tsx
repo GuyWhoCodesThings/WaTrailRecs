@@ -11,11 +11,11 @@ const NavBar = () => {
 
           </li>
           
-        {/* <li>
+        <li>
           <a href="/about" className="text-white hover:text-white">
-            About
+            Contact
           </a>
-        </li> */}
+        </li>
          
         </ul>
       </div>

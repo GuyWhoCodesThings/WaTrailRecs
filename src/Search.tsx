@@ -13,12 +13,14 @@ const Search = (props: SearchProps) => {
   const [searchData, setSearchData] = useState("");
   const [src, setSrc] = useState<number>(-1)
   const [rangeValues, setRangeValues] = useState<Array<number>>([1, 1, 1, 1]);
-  const [k, setK] = useState(12)
+  const [k, setK] = useState<number | string>(12)
+  const [region, setRegion] = useState('')
+
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setSrc(-1)
-    props.handleSubmit(-1, rangeValues, k)
+    props.handleSubmit(-1, rangeValues, -1)
     setSearchData(e.target.value);
   };
 
@@ -30,7 +32,13 @@ const Search = (props: SearchProps) => {
  
   const handleSearchClick = (e: React.MouseEvent<HTMLFormElement, MouseEvent>): void => {
     e.preventDefault()
-    props.handleSubmit(src, rangeValues, k)
+    console.log(region)
+    try {
+      props.handleSubmit(src, rangeValues, Number(k))
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   const handleRangeChange = (index: number, value: number): void => {
@@ -104,7 +112,7 @@ const Search = (props: SearchProps) => {
             </div>
 
             <form 
-            className="flex flex-col flex-wrap  rounded-md p-2"
+            className="flex flex-col flex-wrap  rounded-md p-2 gap-2"
             onSubmit={(e: React.MouseEvent<HTMLFormElement, MouseEvent>) => handleSearchClick(e)}
             >
               
@@ -144,12 +152,38 @@ const Search = (props: SearchProps) => {
                 </div>
                 </div>
               </div>
+              <div className="flex flex-col">
+                <label>Region</label>
+                <select id="area" value={region} onChange={(e) => setRegion(e.target.value)} >
+                  <option value="">all areas</option>
+                  <option value="Central Cascades">Central Cascades</option>
+                  <option value="Central Washington">Central Washington</option>
+                  <option value="Eastern Washington">Eastern Washington</option>
+                  <option value="Issaquah Alps">Issaquah Alps</option>
+                  <option value="Mount Rainier Area">Mount Rainier Area</option>
+                  <option value="North Cascades">North Cascades</option>
+                  <option value="Olympic Peninusla">Olympic Peninsula</option>
+                  <option value="Puget Sound and Islands">Puget Sound and Islands</option>
+                  <option value="Snoqualmie Region">Snoqualmie Region</option>
+                  <option value="South Cascades">South Cascades</option>
+                  <option value="Southwest Washington">Southwest Washington</option>
+                </select>
+              </div>
               <div className="flex flex-col items-center justify-end gap-1">
-                <label># of hikes to find</label>
-                <input
+                <label># of hikes to find (0-30)</label>
+                {/* <input
                 className="w-16 text-lg mb-1 text-right"
                 onChange={(e) => setK(Number(e.target.value))}
-                defaultChecked type="number" min={0} max={30} step={1} value={k} />
+                defaultChecked type="number" min={0} max={30} step={1} value={k} /> */}
+                <input
+                  type="text"
+                  value={k}
+                  onChange={(e) => setK(e.target.value)}
+                  inputMode="numeric"
+                  pattern="([0-2]?[0-9]?)|(30)?"
+                  maxLength={2}
+                />
+
               </div>
               <button type="submit" className="bg-blue-500 rounded-md hover:bg-blue-600">
                 Find
