@@ -1,10 +1,15 @@
+import { IoTrailSignOutline } from "react-icons/io5";
+
 const About = () => {
     return (
         <div className="w-full h-fit mt-6 mb-6 text-sm">
-           
-            <h5 className="text-3xl mb-2">How to Search</h5>
+            <div className="flex justify-center items-center text-4xl">
+                <IoTrailSignOutline size={40} className="text-emerald-600" />
+                WaTrailRecs
+            </div>
+            <h5 className="text-lg font-light mb-2 mt-2">How to Search</h5>
             <div className="flex justify-center">
-            <ul className="list-decimal text-left w-2/3 lg:max-w-[400px] md:max-w-[400px] sm:w-1/2 flex flex-col gap-3">
+            <ul className="list-decimal text-left w-2/3 lg:max-w-[600px] md:max-w-[600px] sm:w-1/2 flex flex-col gap-3">
                 <li>
                     find a hike from the list or through the search bar
                 </li>
