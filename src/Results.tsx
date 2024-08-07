@@ -21,13 +21,16 @@ const Results = (props: ResultsProps) => {
 
   useEffect(() => {
 
-    const load = async() => {
+    const load = () => {
       props.loadingFn(true)
-      const results = await topK(target, copyOfHikes, props.k, props.mask);
+      const results = topK(target, copyOfHikes, props.k, props.mask);
       setRes(results)
+      setTimeout(() => {
       if (resultsRef.current !== null) {
+       
         resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+    }, 100)
       props.loadingFn(false)
     }
     load()
