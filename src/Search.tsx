@@ -13,7 +13,7 @@ const Search = (props: SearchProps) => {
   const [searchData, setSearchData] = useState("");
   const [src, setSrc] = useState<number>(-1)
   const [rangeValues, setRangeValues] = useState<Array<number>>([1, 1, 1, 1]);
-  const [k, setK] = useState<number | string>(12)
+  const [k, setK] = useState<number>(12)
   const [region, setRegion] = useState('')
 
 
@@ -33,12 +33,8 @@ const Search = (props: SearchProps) => {
   const handleSearchClick = (e: React.MouseEvent<HTMLFormElement, MouseEvent>): void => {
     e.preventDefault()
     console.log(region)
-    try {
-      props.handleSubmit(src, rangeValues, Number(k))
-    } catch (error) {
-      console.log(error)
-    }
-    
+    props.handleSubmit(src, rangeValues, k)
+  
   }
 
   const handleRangeChange = (index: number, value: number): void => {
@@ -175,14 +171,20 @@ const Search = (props: SearchProps) => {
                 className="w-16 text-lg mb-1 text-right"
                 onChange={(e) => setK(Number(e.target.value))}
                 defaultChecked type="number" min={0} max={30} step={1} value={k} /> */}
-                <input
+                {/* <input
                   type="text"
                   value={k}
                   onChange={(e) => setK(e.target.value)}
                   inputMode="numeric"
                   pattern="([0-2]?[0-9]?)|(30)?"
                   maxLength={2}
+                /> */}
+                 <input
+                  className=" accent-blue-500 w-full"
+                  onChange={(e) => setK(e.target.value)}
+                  defaultChecked type="range" min={0} max={30} step={1} value={k} 
                 />
+                
 
               </div>
               <button type="submit" className="bg-blue-500 rounded-md hover:bg-blue-600">
