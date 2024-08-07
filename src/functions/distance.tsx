@@ -58,7 +58,7 @@ export const getDistance = (a: Hike, b: Hike, mask: Array<number>): number => {
 
 }
 
-export const topK = (a: Hike, b: Array<Hike>, k: number, mask: Array<number>): Array<HikeComparable> => {
+export const topK = (a: Hike, b: Array<Hike>, k: number, mask: Array<number>, cb: (res: Array<HikeComparable>) => void): void => {
 
     if (k > b.length - 1) {
         throw new Error('k must be less than the length of hikes available')
@@ -76,7 +76,8 @@ export const topK = (a: Hike, b: Array<Hike>, k: number, mask: Array<number>): A
 
         const last: HikeComparable | undefined = topK.pop()
         if (last === undefined) {
-            return topK;
+            cb(topK)
+            return;
         }
         const newDist = getDistance(b[i], a, mask)
         if (newDist < last.distance) {
@@ -87,6 +88,6 @@ export const topK = (a: Hike, b: Array<Hike>, k: number, mask: Array<number>): A
         }
     }
 
-    return topK
+    cb(topK)
     
 }

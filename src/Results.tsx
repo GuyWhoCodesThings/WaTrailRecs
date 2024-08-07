@@ -19,21 +19,24 @@ const Results = (props: ResultsProps) => {
   const target: Hike = copyOfHikes.splice(props.srcIdx, 1)[0];
   const [res, setRes] = useState<Array<HikeComparable> | undefined >(undefined)
 
-  useEffect(() => {
-
-    const load = () => {
-      props.loadingFn(true)
-      const results = topK(target, copyOfHikes, props.k, props.mask);
-      setRes(results)
-      setTimeout(() => {
+  const goToElem = (res: Array<HikeComparable>): void => {
+    
+    setRes(res)
+    props.loadingFn(false)
+    setTimeout(() => {
       if (resultsRef.current !== null) {
-       
         resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+
     }, 100)
-      props.loadingFn(false)
-    }
-    load()
+    
+  }
+
+  useEffect(() => {
+
+    props.loadingFn(true)
+    topK(target, copyOfHikes, props.k, props.mask, goToElem);
+
   }, [props.srcIdx, props.mask, props.k])
 
   return (

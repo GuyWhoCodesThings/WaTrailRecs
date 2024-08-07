@@ -5,6 +5,7 @@ import Search from './Search';
 import Results from './Results';
 import NavBar from './Components/Navbar';
 import About from './About';
+import { IoTrailSignOutline } from "react-icons/io5";
 
 function App() {
   const [hikesData, setHikesData] = useState<undefined | Array<Hike>>(undefined);
@@ -40,7 +41,12 @@ function App() {
 
 
   if (hikesData === undefined || loading) {
-    return <div>Loading...</div>
+    return (
+    <div className='flex justify-center gap-6 items-center'>
+      <p>Loading hikes...</p>
+      <IoTrailSignOutline size={35} className='animate-spin text-emerald-600' />
+    </div>
+    )
   }
 
   return (
