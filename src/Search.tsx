@@ -150,8 +150,9 @@ const Search = (props: SearchProps) => {
               </div>
               <div className="flex flex-col">
                 <label>Region</label>
-                <select id="area" value={region} onChange={(e) => setRegion(e.target.value)} >
-                  <option value="">all areas</option>
+                <select id="area" value={region} onChange={(e) => setRegion(e.target.value)}
+                className="w-full h-10" >
+                  <option value="">include all areas</option>
                   <option value="Central Cascades">Central Cascades</option>
                   <option value="Central Washington">Central Washington</option>
                   <option value="Eastern Washington">Eastern Washington</option>

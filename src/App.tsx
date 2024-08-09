@@ -55,13 +55,13 @@ function App() {
   }
 
   return (
-    <div className='relative w-screen '>
+    <div className='relative w-screen h-screen'>
       <NavBar changePage={changePage} />
 
     { !page ?
       
-      <div className='mt-12'>
-        <h1 className='mb-4 mt-4 font-thin'>Questions?</h1>
+      <div className='h-full w-full flex flex-col justify-center items-center'>
+        <h1 className='mb-4 font-thin'>Questions?</h1>
         <p className='font-light'>contact us at <span className='font-normal'>watrailrecs@gmail.com</span></p>
       </div>
       :

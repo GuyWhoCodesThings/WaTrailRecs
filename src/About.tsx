@@ -3,7 +3,7 @@ import { IoTrailSignOutline } from "react-icons/io5";
 const About = () => {
     return (
         <div className="w-full h-fit mt-6 mb-6 text-sm">
-            <div className="flex justify-center items-center text-4xl">
+            <div className="flex justify-center items-center text-4xl font-light">
                 <IoTrailSignOutline size={40} className="text-emerald-600" />
                 WaTrailRecs
             </div>
