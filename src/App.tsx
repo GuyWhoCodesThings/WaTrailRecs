@@ -13,18 +13,18 @@ function App() {
   const [searchSize, setSearchSize] = useState(-1)
   const [mask, setMasks] = useState([1,1,1,1])
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [page, setPage] = useState(false)
+  const [page, setPage] = useState(true)
 
   const handleCurrentHikeChange = (idx: number, masks: Array<number>, k: number): void => {
-    setError('')
     setCurrentHikeIdx(idx)
     setMasks(masks)
     setSearchSize(k)
-    console.log(idx)
   }
 
   const changePage = (s: boolean): void => {
+    if (s !== page) {
+      handleCurrentHikeChange(-1, [], -1)
+    }
     setPage(s)
   }
 
@@ -55,21 +55,19 @@ function App() {
   }
 
   return (
-    <div className='relative w-screen h-screen '>
+    <div className='relative w-screen '>
       <NavBar changePage={changePage} />
 
     { !page ?
       
       <div className='mt-12'>
         <h1>Questions?</h1>
-        <p>contact us at </p>
+        <p>contact us at <span>watrailrecs@gmail.com</span></p>
       </div>
       :
       <main className='mt-12 w-full'>
         <About />
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
-        <p className='text-center text-sm text-red-500'>{error}</p>
-
         {
         currentHikeIdx !== undefined && currentHikeIdx >= 0 && searchSize >= 0 &&
           <div className='w-full flex justify-center'>

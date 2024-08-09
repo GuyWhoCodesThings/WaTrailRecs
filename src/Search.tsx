@@ -92,7 +92,7 @@ const Search = (props: SearchProps) => {
             .map(hike => hike.name)
             .filter((hike) => hike.toLowerCase().includes(searchData.toLowerCase()))
             .length === 0 &&
-              <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 text-red-500">
+              <p className="lg:col-span-3 md:col-span-2 sm:col-span-1 text-red-500 ml-2">
                 No hikes found with name {searchData}.
               </p>
           }
