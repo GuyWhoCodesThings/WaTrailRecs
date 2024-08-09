@@ -37,7 +37,7 @@ function App() {
     fetch('/hikes1.json')
       .then(res => res.json())
       .then(data => {
-        setLoading(false)
+        // setLoading(false)
         setHikesData(data)
       })
       .catch(err => console.error(`Error loading hikes: ${err}`))
@@ -47,7 +47,7 @@ function App() {
 
   if (hikesData === undefined || loading) {
     return (
-    <div className='flex justify-center gap-6 items-center'>
+    <div className='flex w-screen h-screen justify-center gap-6 items-center'>
       <p>Loading hikes...</p>
       <IoTrailSignOutline size={35} className='animate-spin text-emerald-600' />
     </div>
