@@ -108,7 +108,7 @@ const Search = (props: SearchProps) => {
             </div>
 
             <form 
-            className="flex flex-col flex-wrap  rounded-md p-2 gap-2"
+            className="flex flex-col flex-wrap  rounded-md p-2 gap-4"
             onSubmit={(e: React.MouseEvent<HTMLFormElement, MouseEvent>) => handleSearchClick(e)}
             >
               
@@ -166,7 +166,7 @@ const Search = (props: SearchProps) => {
                   <option value="Southwest Washington">Southwest Washington</option>
                 </select>
               </div>
-              <div className="flex flex-col items-center justify-end gap-1">
+              <div className="flex flex-col items-center justify-end gap-1 mb-4">
                 <label># of hikes to find (0-30)</label>
                 {/* <input
                 className="w-16 text-lg mb-1 text-right"
