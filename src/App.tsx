@@ -14,6 +14,7 @@ function App() {
   const [mask, setMasks] = useState([1,1,1,1])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [page, setPage] = useState(false)
 
   const handleCurrentHikeChange = (idx: number, masks: Array<number>, k: number): void => {
     setError('')
@@ -21,6 +22,10 @@ function App() {
     setMasks(masks)
     setSearchSize(k)
     console.log(idx)
+  }
+
+  const changePage = (s: boolean): void => {
+    setPage(s)
   }
 
   const changeLoading = (loadState: boolean) => {
@@ -50,8 +55,16 @@ function App() {
   }
 
   return (
-    <div className='w-screen h-screen '>
-      <NavBar />
+    <div className='relative w-screen h-screen '>
+      <NavBar changePage={changePage} />
+
+    { !page ?
+      
+      <div className='mt-12'>
+        <h1>Questions?</h1>
+        <p>contact us at </p>
+      </div>
+      :
       <main className='mt-12 w-full'>
         <About />
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
@@ -67,6 +80,8 @@ function App() {
           }
         
       </main>
+      }
+      
     </div>
   )
 }

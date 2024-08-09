@@ -181,11 +181,10 @@ const Search = (props: SearchProps) => {
                 /> */}
                  <input
                   className=" accent-blue-500 w-full"
-                  onChange={(e) => setK(e.target.value)}
+                  onChange={(e) => setK(Number(e.target.value))}
                   defaultChecked type="range" min={0} max={30} step={1} value={k} 
                 />
                 
-
               </div>
               <button type="submit" className="bg-blue-500 rounded-md hover:bg-blue-600">
                 Find
