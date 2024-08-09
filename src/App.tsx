@@ -37,7 +37,7 @@ function App() {
     fetch('/hikes1.json')
       .then(res => res.json())
       .then(data => {
-        // setLoading(false)
+        setLoading(false)
         setHikesData(data)
       })
       .catch(err => console.error(`Error loading hikes: ${err}`))
