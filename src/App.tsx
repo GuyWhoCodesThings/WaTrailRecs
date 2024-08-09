@@ -61,11 +61,11 @@ function App() {
     { !page ?
       
       <div className='mt-12'>
-        <h1>Questions?</h1>
-        <p>contact us at <span>watrailrecs@gmail.com</span></p>
+        <h1 className='mb-4 mt-4 font-thin'>Questions?</h1>
+        <p className='font-light'>contact us at <span className='font-normal'>watrailrecs@gmail.com</span></p>
       </div>
       :
-      <main className='mt-12 w-full'>
+      <main className='mt-12 w-full h-full'>
         <About />
         <Search handleSubmit={handleCurrentHikeChange} hikes={hikesData} />
         {

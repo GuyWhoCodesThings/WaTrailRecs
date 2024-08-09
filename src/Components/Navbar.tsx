@@ -10,7 +10,8 @@ const NavBar = (props: NavBarProps) => {
            
             <button
             onClick={() => props.changePage(true)}
-            className="text-white hover:text-white border-none hover:border-none">
+           
+            className="text-white hover:text-white border-none focus:underline p-1 m-0">
               Home
             </button>
           </li>
@@ -18,7 +19,7 @@ const NavBar = (props: NavBarProps) => {
         <li>
           <button 
           onClick={() => props.changePage(false)}
-          className="text-white hover:text-white">
+          className="text-white hover:text-white border-none focus:underline p-1 m-0">
             Contact
           </button>
         </li>

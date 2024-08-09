@@ -101,7 +101,7 @@ const Search = (props: SearchProps) => {
       
   
       {src >= 0 &&
-        <section ref={targetRef} className="w-full gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col justify-center items-center bg-slate-100 pb-4">
+        <section ref={targetRef} className="w-full h-full gap-4 flex flex-col lg:flex-row md:flex-row sm:flex-col justify-center items-center bg-slate-100 pb-4">
             <div className="overflow-hidden max-w-[350px] max-h-[350px]">
                 <a className="text-xl" href={props.hikes[src].url}>{props.hikes[src].name}</a>
                 <img src={props.hikes[src].imageSrc} className=" object-contain w-full h-full " />
