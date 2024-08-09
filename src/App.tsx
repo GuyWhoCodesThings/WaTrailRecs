@@ -14,16 +14,18 @@ function App() {
   const [mask, setMasks] = useState([1,1,1,1])
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(true)
+  const [loc, setLoc] = useState('')
 
-  const handleCurrentHikeChange = (idx: number, masks: Array<number>, k: number): void => {
+  const handleCurrentHikeChange = (idx: number, masks: Array<number>, k: number, location: string): void => {
     setCurrentHikeIdx(idx)
     setMasks(masks)
     setSearchSize(k)
+    setLoc(location)
   }
 
   const changePage = (s: boolean): void => {
     if (s !== page) {
-      handleCurrentHikeChange(-1, [], -1)
+      handleCurrentHikeChange(-1, [], -1, '')
     }
     setPage(s)
   }
@@ -34,7 +36,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true)
-    fetch('/hikes1.json')
+    fetch('/hikes3.json')
       .then(res => res.json())
       .then(data => {
         setLoading(false)
@@ -72,7 +74,7 @@ function App() {
         currentHikeIdx !== undefined && currentHikeIdx >= 0 && searchSize >= 0 &&
           <div className='w-full flex justify-center'>
           
-            <Results loadingFn={changeLoading}  mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />
+            <Results location={loc} loadingFn={changeLoading}  mask={mask} hikes={hikesData} srcIdx={currentHikeIdx} k={searchSize} />
           
           </div>
           }

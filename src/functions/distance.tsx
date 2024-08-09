@@ -58,10 +58,14 @@ export const getDistance = (a: Hike, b: Hike, mask: Array<number>): number => {
 
 }
 
-export const topK = (a: Hike, b: Array<Hike>, k: number, mask: Array<number>, cb: (res: Array<HikeComparable>) => void): void => {
+export const topK = (a: Hike, results: Array<Hike>, numRes: number, mask: Array<number>, location: string, cb: (res: Array<HikeComparable>) => void): void => {
 
-    if (k > b.length - 1) {
-        throw new Error('k must be less than the length of hikes available')
+
+    const b = location === '' ? results : results.filter((hike) => hike.location.startsWith(location))
+    
+    let k = numRes
+    if (k > results.length - 1) {
+        k = results.length
     }
 
     const topK: Array<HikeComparable> = []

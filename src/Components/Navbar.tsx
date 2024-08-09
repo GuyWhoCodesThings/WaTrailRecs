@@ -5,7 +5,7 @@ type NavBarProps = {
 const NavBar = (props: NavBarProps) => {
     return (
       <div className="fixed top-0 z-50 left-0 right-0 bg-emerald-600 text-white">
-        <ul className="w-full flex justify-between p-2 pl-4 pr-4">
+        <ul className="w-full flex justify-between p-2 pl-4 pr-4 items-center">
           <li className="flex items-center">
            
             <button

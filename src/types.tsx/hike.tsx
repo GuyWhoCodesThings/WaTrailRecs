@@ -1,5 +1,6 @@
 export type Hike = {
     name: string, 
+    location: string,
     url: string,
     imageSrc: string,
     image: Array<number>,

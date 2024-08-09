@@ -8,6 +8,7 @@ type ResultsProps = {
   hikes: Array<Hike>;
   mask: Array<number>;
   k: number,
+  location: string,
   loadingFn: (b: boolean) => void
 };
 
@@ -35,9 +36,9 @@ const Results = (props: ResultsProps) => {
   useEffect(() => {
 
     props.loadingFn(true)
-    topK(target, copyOfHikes, props.k, props.mask, goToElem);
+    topK(target, copyOfHikes, props.k, props.mask, props.location, goToElem);
 
-  }, [props.srcIdx, props.mask, props.k])
+  }, [props.srcIdx, props.mask, props.k, props.location])
 
   return (
     <div ref={resultsRef} className="flex flex-col justify-center items-center w-full bg-slate-200">

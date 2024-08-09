@@ -9,7 +9,7 @@ const About = () => {
             </div>
             <h5 className="text-lg font-light mb-2 mt-2">How to Search</h5>
             <div className="flex justify-center">
-            <ul className="list-decimal text-left w-2/3 lg:max-w-[600px] md:max-w-[600px] sm:w-1/2 flex flex-col gap-3">
+            <ul className="list-decimal text-left w-2/3 lg:max-w-[600px] md:max-w-[600px] sm:w-1/2 flex flex-col gap-3 justify-start items-center">
                 <li>
                     find a hike from the list or through the search bar
                 </li>
@@ -17,7 +17,7 @@ const About = () => {
                     click on the "Select" button
                 </li>
                 <li>
-                    Adjust the search settings to your liking, moving a slider further left will decrease its importance when calculating the similarity
+                    Adjust the search settings to your liking, moving a slider further left will decrease its importance when calculating the similarity. For best results, include all areas.
                 </li>
                 <li>
                     Click on the "Find" button to display the results

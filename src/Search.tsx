@@ -3,7 +3,7 @@ import { Hike } from "./types.tsx/hike";
 
 type SearchProps = {
   hikes: Array<Hike>
-  handleSubmit: (idx: number, masks: Array<number>, searchSize: number) => void
+  handleSubmit: (idx: number, masks: Array<number>, searchSize: number, loc: string) => void
 };
 
 const Search = (props: SearchProps) => {
@@ -20,7 +20,7 @@ const Search = (props: SearchProps) => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setSrc(-1)
-    props.handleSubmit(-1, rangeValues, -1)
+    props.handleSubmit(-1, rangeValues, -1, '')
     setSearchData(e.target.value);
   };
 
@@ -33,7 +33,7 @@ const Search = (props: SearchProps) => {
   const handleSearchClick = (e: React.MouseEvent<HTMLFormElement, MouseEvent>): void => {
     e.preventDefault()
     console.log(region)
-    props.handleSubmit(src, rangeValues, k)
+    props.handleSubmit(src, rangeValues, k, region)
   
   }
 
@@ -159,7 +159,7 @@ const Search = (props: SearchProps) => {
                   <option value="Issaquah Alps">Issaquah Alps</option>
                   <option value="Mount Rainier Area">Mount Rainier Area</option>
                   <option value="North Cascades">North Cascades</option>
-                  <option value="Olympic Peninusla">Olympic Peninsula</option>
+                  <option value="Olympic Peninsula">Olympic Peninsula</option>
                   <option value="Puget Sound and Islands">Puget Sound and Islands</option>
                   <option value="Snoqualmie Region">Snoqualmie Region</option>
                   <option value="South Cascades">South Cascades</option>
